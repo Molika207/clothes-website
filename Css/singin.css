@@ -1,0 +1,79 @@
+/* Previous styles from earlier remain... add these below */
+
+.form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fdfdfd;
+}
+
+.forgot-pass {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--primary-brown);
+    margin-top: 5px;
+    text-decoration: none;
+}
+
+.social-login {
+    margin-top: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.icon-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.back-nav {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
