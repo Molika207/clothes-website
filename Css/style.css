@@ -72,9 +72,8 @@ body {
 }
 
 /* Buttons */
-.btn-primary {
+ .btn-primary {
     background-color: var(--primary-brown);
-    color: white;
     border: none;
     padding: 15px 40px;
     border-radius: var(--border-radius);
@@ -83,10 +82,21 @@ body {
     transition: 0.3s;
     width: 100%;
     max-width: 300px;
+    display: flex;         /* Added to center the link perfectly */
+    justify-content: center;
+    align-items: center;
+}
+
+/* This targets the link inside the button */
+.btn-primary a {
+    color: white;          /* Changes color from blue to white */
+    text-decoration: none; /* Removes the underline */
+    width: 100%;           /* Ensures the whole button is clickable */
+    display: block;
 }
 
 .btn-primary:hover {
-    background-color: #5a3e2c;
+    background-color: #5a3e2c;/* Darkens slightly on hover */
 }
 
 .alt-action {
@@ -145,4 +155,79 @@ body {
 /* Circle bottom shape */
 .circle-bottom {
     border-radius: 20px 20px 120px 120px;
+}
+/* --- Responsive Media Queries --- */
+
+/* For Tablets and smaller laptops (under 1024px) */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 1.5rem 5%;
+    }
+
+    .hero {
+        padding: 5% 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* Slightly smaller text */
+    }
+}
+
+/* For Mobile Phones (under 768px) */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack logo and links */
+        gap: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        flex-direction: column; /* Stack text on top of images */
+        text-align: center;
+        padding-top: 2rem;
+        min-height: auto;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem; /* Space before images */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .btn-primary {
+        margin: 0 auto; /* Center the button */
+    }
+
+    .hero-images {
+        justify-content: center; /* Center the arch images */
+        width: 100%;
+    }
+
+    .image-card {
+        width: 160px; /* Smaller images for mobile */
+        height: 240px;
+    }
+}
+
+/* For small mobile devices (under 480px) */
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .image-card {
+        width: 140px;
+        height: 200px;
+    }
+
+    .hero-images {
+        gap: 10px;
+    }
 }
