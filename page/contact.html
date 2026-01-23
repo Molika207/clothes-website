@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Fashion.</title>
+    <link rel="stylesheet" href="/Css/style.css">
+    <link rel="stylesheet" href="/Css/singin.css">
+</head>
+<style>
+    .text{
+        width:100% ;
+        border-radius: 10px;
+        padding: 10px 10px;
+        border: 1px solid var(--primary-brown);
+    }
+
+    button{
+        padding: 20px 40px;
+        border-radius: 10px;
+        background-color: #6F4E37;
+
+    }
+    button:hover{
+        background-color: #dab295;
+    }
+</style>
+<body>
+      <nav class="navbar">
+        <div class="logo">f fashion<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/page/about.html">About Us</a></li>
+            <li><a href="/page/shop.html">Shop</a></li>
+            <li><a href="/page/wishlist.html" class="active">Wishlist</a></li>
+            <li><a href="/page/contact.html">Contact</a></li>
+            <li class="login-btn"><a href="/page/singin.html">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <div class="form-container">
+        <h2>Contact to Us</h2>
+        <p class="subtitle">Hi! Welcome back, you've been missed.</p>
+
+        <form>
+            <div class="input-group">
+                <label>Full name</label>
+                <input type="email" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="password" placeholder="Enter you email" required>
+            </div>
+            <div class="input-group">
+                <textarea class="text" rows="6" placeholder="Enter your messages" required></textarea>
+            </div>
+            
+        </form>
+        <button>Send Message</button>
+
+
+    </div>
+
+</body>
+</html>

@@ -13,9 +13,10 @@
         <div class="logo">f fashion<span>.</span></div>
         <ul class="nav-links">
             <li><a href="/index.html">Home</a></li>
-            <li><a href="/page/shop.html" class="active">Shop</a></li>
-            <li><a href="/page/wishlist.html">Wishlist</a></li>
             <li><a href="/page/about.html">About Us</a></li>
+            <li><a href="/page/shop.html">Shop</a></li>
+            <li><a href="/page/wishlist.html" class="active">Wishlist</a></li>
+            <li><a href="/page/contact.html">Contact</a></li>
             <li class="login-btn"><a href="/page/singin.html">Sign In</a></li>
         </ul>
     </nav>
@@ -311,6 +312,61 @@
             </div>
         </section>
     </main>
+
+    <!-- <script>
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function addToCart(product) {
+    const existing = cart.find(item => item.id === product.id);
+
+    if (existing) {
+      existing.quantity++;
+    } else {
+      cart.push(product);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert('Added to cart!');
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('btn-add')) {
+      const btn = e.target;
+
+      const product = {
+        id: parseInt(btn.dataset.id),
+        name: btn.dataset.name,
+        price: parseFloat(btn.dataset.price),
+        image: btn.dataset.image,
+        quantity: 1
+      };
+
+      addToCart(product);
+    }
+
+    function addToCart(product) {
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push(product);
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // 👉 PUT IT HERE
+  window.location.href = "cart.html";
+}
+
+  });
+</script> -->
+
+z
+
+
+
+
 
 </body>
 </html>
