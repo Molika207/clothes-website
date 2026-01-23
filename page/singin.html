@@ -17,7 +17,7 @@
         <h2>Sign In</h2>
         <p class="subtitle">Hi! Welcome back, you've been missed.</p>
 
-        <form>
+        <form id="loginForm">
             <div class="input-group">
                 <label>Email</label>
                 <input type="email" placeholder="example@gmail.com" required>
@@ -42,7 +42,28 @@
         </div>
 
         <p class="footer-text">Don't have an account? <a href="#">Sign Up</a></p>
+
+        <!-- Message container -->
+        <p id="message" style="color:green; font-weight:bold; margin-top:10px;"></p>
     </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const message = document.getElementById('message');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            message.textContent = "You have logged in successfully!";
+
+            // Optional: clear the form
+            loginForm.reset();
+
+            // Redirect to home page after 2 seconds
+            setTimeout(() => {
+                window.location.href = "/index.html"; // Change this to your home page URL
+            }, 6000);
+        });
+    </script>
 
 </body>
 </html>

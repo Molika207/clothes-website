@@ -1,4 +1,8 @@
 /* About Page Specifics */
+
+body{
+    padding: 0px 20px;
+}
 .about-hero {
     display: flex;
     align-items: center;
@@ -122,6 +126,10 @@
     color: var(--primary-brown);
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+.page-header {
+    text-align: center;
 }
 
 /* Responsive adjustment for 5 members */

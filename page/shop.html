@@ -33,18 +33,6 @@
             </div>
         </section>
 
-        <!-- <section class="shop-section">
-            <div class="section-header">
-                <h3>Category</h3>
-                <a href="#" class="see-all">See All</a>
-            </div>
-            <div class="category-grid">
-                <div class="cat-item">👔<p>Suits</p></div>
-                <div class="cat-item">🧥<p>Jackets</p></div>
-                <div class="cat-item">👕<p>T-Shirts</p></div>
-                <div class="cat-item">👖<p>Pants</p></div>
-            </div>
-        </section> -->
 
        <section class="shop-section">
             <div class="section-header">
@@ -312,61 +300,5 @@
             </div>
         </section>
     </main>
-
-    <!-- <script>
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  function addToCart(product) {
-    const existing = cart.find(item => item.id === product.id);
-
-    if (existing) {
-      existing.quantity++;
-    } else {
-      cart.push(product);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert('Added to cart!');
-  }
-
-  document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('btn-add')) {
-      const btn = e.target;
-
-      const product = {
-        id: parseInt(btn.dataset.id),
-        name: btn.dataset.name,
-        price: parseFloat(btn.dataset.price),
-        image: btn.dataset.image,
-        quantity: 1
-      };
-
-      addToCart(product);
-    }
-
-    function addToCart(product) {
-  const existing = cart.find(item => item.id === product.id);
-
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push(product);
-  }
-
-  localStorage.setItem('cart', JSON.stringify(cart));
-
-  // 👉 PUT IT HERE
-  window.location.href = "cart.html";
-}
-
-  });
-</script> -->
-
-z
-
-
-
-
-
 </body>
 </html>
