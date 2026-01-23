@@ -1,3 +1,7 @@
+body{
+    padding: 0px 20px;
+}
+
 /* Promo Banner */
 .promo-banner {
     background-color: #F3EEEA; /* Soft cream color from UI */
