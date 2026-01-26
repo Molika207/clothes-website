@@ -148,6 +148,12 @@ body {
     cursor: pointer;
     transition: transform 0.3s, background 0.3s;
 }
+ .login-btn a {
+            background: #e91e63;
+            color: white !important;
+            padding: 0.6rem 1.3rem;
+            border-radius: 8px;
+        }
 
 .heart-icon:hover {
     transform: scale(1.3);

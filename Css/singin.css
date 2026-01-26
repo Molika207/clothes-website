@@ -10,6 +10,12 @@
     border-radius: 20px;
     background: #fff;
 }
+ .login-btn a {
+            background: #e91e63;
+            color: white !important;
+            padding: 0.6rem 1.3rem;
+            border-radius: 8px;
+        }
 
 .subtitle {
     color: var(--text-muted);

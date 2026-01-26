@@ -274,7 +274,12 @@ body {
     font-size: 24px;
     margin-bottom: 15px;
 }
-
+ .login-btn a {
+            background: #e91e63;
+            color: white !important;
+            padding: 0.6rem 1.3rem;
+            border-radius: 8px;
+        }
 .mv-card p {
     color: #555;
     line-height: 1.6;
