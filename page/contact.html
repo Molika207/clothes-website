@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="/Css/style.css">
     <link rel="stylesheet" href="/Css/singin.css">
 </head>
+
 <style>
     .text{
-        width:100% ;
+        width:100%;
         border-radius: 10px;
-        padding: 10px 10px;
+        padding: 10px;
         border: 1px solid var(--primary-brown);
     }
 
@@ -19,48 +20,78 @@
         padding: 20px 40px;
         border-radius: 10px;
         background-color: #6F4E37;
-
+        color: white;
+        border: none;
+        cursor: pointer;
     }
+
     button:hover{
         background-color: #dab295;
     }
+
+    .success-msg{
+        display: none;
+        margin-top: 15px;
+        color: green;
+        font-weight: bold;
+    }
 </style>
+
 <body>
-      <nav class="navbar">
-        <div class="logo">f fashion<span>.</span></div>
-        <ul class="nav-links">
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/page/about.html">About Us</a></li>
-            <li><a href="/page/shop.html">Shop</a></li>
-            <li><a href="/page/wishlist.html" class="active">Wishlist</a></li>
-            <li><a href="/page/contact.html">Contact</a></li>
-            <li class="login-btn"><a href="/page/singin.html">Sign In</a></li>
-        </ul>
-    </nav>
 
-    <div class="form-container">
-        <h2>Contact to Us</h2>
-        <p class="subtitle">Hi! Welcome back, you've been missed.</p>
+<nav class="navbar">
+    <div class="logo">f fashion<span>.</span></div>
+    <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/page/about.html">About Us</a></li>
+        <li><a href="/page/shop.html">Shop</a></li>
+        <li><a href="/page/wishlist.html" class="active">Wishlist</a></li>
+        <li><a href="/page/contact.html">Contact</a></li>
+        <li class="login-btn"><a href="/page/singin.html">Sign In</a></li>
+    </ul>
+</nav>
 
-        <form>
-            <div class="input-group">
-                <label>Full name</label>
-                <input type="email" placeholder="Enter your full name" required>
-            </div>
-            
-            <div class="input-group">
-                <label>Email Address</label>
-                <input type="password" placeholder="Enter you email" required>
-            </div>
-            <div class="input-group">
-                <textarea class="text" rows="6" placeholder="Enter your messages" required></textarea>
-            </div>
-            
-        </form>
-        <button>Send Message</button>
+<div class="form-container">
+    <h2>Contact to Us</h2>
 
+    <form id="contactForm">
+        <div class="input-group">
+            <label>Full name</label>
+            <input type="text" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required>
+        </div>
 
-    </div>
+        <div class="input-group">
+            <textarea class="text" rows="6" placeholder="Enter your messages" required></textarea>
+        </div>
+    </form>
+
+    <button id="sendBtn">Send Message</button>
+
+    <p class="success-msg" id="successMsg">
+        ✅ Your message has been sent successfully!
+    </p>
+</div>
+
+<!-- ✅ JavaScript -->
+<script>
+    const form = document.getElementById("contactForm");
+    const sendBtn = document.getElementById("sendBtn");
+    const successMsg = document.getElementById("successMsg");
+
+    sendBtn.addEventListener("click", function () {
+        if (form.checkValidity()) {
+            successMsg.style.display = "block";
+            form.reset();
+        } else {
+            form.reportValidity();
+        }
+    });
+</script>
 
 </body>
 </html>
