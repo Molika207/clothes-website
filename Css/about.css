@@ -160,14 +160,17 @@ body{
 
 .info-card {
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: 25px;
     padding: 25px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    /* border-color: var(--primary-brown); */
     transition: transform 0.3s ease;
 }
 
 .info-card:hover {
-    transform: translateY(-5px);
+    
+    border: 1px solid var(--primary-brown);
+   
 }
 
 .info-card h3 {
@@ -202,10 +205,16 @@ body{
 
 .step-card {
     background: #fff;
-    border-radius: 14px;
+    border-radius: 25px;
     padding: 30px;
     margin-bottom: 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+}
+.step-card:hover{
+    border: 1px solid var(--primary-brown);
+    
+
 }
 
 .step-card i {

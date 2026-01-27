@@ -370,41 +370,63 @@
 
     </main>
 
-    <!-- Modal -->
+    <!-- Add to Cart Modal (Detailed) -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">×</span>
             <div class="modal-body">
                 <div class="product-image">
-                    <img id="modalImage" src="" alt="Product">
+                    <img id="modalImage" src="" alt="Product" style="width: 100%; max-width: 380px; height: auto; border-radius: 16px;">
                 </div>
                 <div class="product-details">
-                    <h2 id="modalTitle"></h2>
-                    <p id="modalPrice" class="current-price"></p>
+                    <h2 id="modalTitle" style="font-size: 1.8rem; margin-bottom: 0.5rem;"></h2>
+                    
+                    <p id="modalPrice" class="current-price" style="font-size: 1.9rem; margin-bottom: 1.2rem;"></p>
 
                     <div class="size-selection">
-                        <label for="sizeSelect">Size</label>
+                        <label for="sizeSelect"><strong>Size</strong></label>
                         <select id="sizeSelect">
-                            <option value="S">S</option>
-                            <option value="M" selected>M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
+                            <option value="S">S (Small)</option>
+                            <option value="M" selected>M (Medium)</option>
+                            <option value="L">L (Large)</option>
+                            <option value="XL">XL (Extra Large)</option>
+                            <option value="XXL">XXL (2X Large)</option>
                         </select>
                     </div>
 
                     <div class="quantity-selector">
-                        <label>Quantity</label>
+                        <label><strong>Quantity</strong></label>
                         <div class="qty-controls">
-                            <button type="button" class="qty-btn minus">-</button>
+                            <button type="button" class="qty-btn minus">−</button>
                             <input type="number" id="modalQuantity" value="1" min="1" max="20">
                             <button type="button" class="qty-btn plus">+</button>
                         </div>
                     </div>
 
-                    <p class="total-price">Total: $<span id="modalTotal">0.00</span></p>
+                    <p class="total-price" style="font-size: 1.3rem; margin: 1.5rem 0; font-weight: 600;">Total: $<span id="modalTotal">0.00</span></p>
 
-                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="add-to-cart-btn">✓ Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Product Modal (Simple) -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content-simple">
+            <span class="close-modal-simple">×</span>
+            <div class="view-modal-body">
+                <div class="view-product-image">
+                    <img id="viewModalImage" src="" alt="Product">
+                </div>
+                <div class="view-product-info">
+                    <h3 id="viewModalTitle"></h3>
+                    <p id="viewModalPrice" class="current-price"></p>
+                    <div class="view-rating">
+                        <span id="viewModalRating" class="view-stars"></span>
+                        <span id="viewModalReviews" class="view-review-count"></span>
+                    </div>
+                    <button class="btn-cancel">Cancel</button>
                 </div>
             </div>
         </div>
@@ -412,6 +434,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Add to Cart Modal Elements
             const modal          = document.getElementById('productModal');
             const closeBtn       = document.querySelector('.close-modal');
             const modalImage     = document.getElementById('modalImage');
@@ -423,6 +446,16 @@
             const plusBtn        = document.querySelector('.qty-btn.plus');
             const addToCartBtn   = document.querySelector('.add-to-cart-btn');
 
+            // View Modal Elements
+            const viewModal      = document.getElementById('viewModal');
+            const closeViewBtn   = document.querySelector('.close-modal-simple');
+            const viewModalImage = document.getElementById('viewModalImage');
+            const viewModalTitle = document.getElementById('viewModalTitle');
+            const viewModalPrice = document.getElementById('viewModalPrice');
+            const viewModalRating = document.getElementById('viewModalRating');
+            const viewModalReviews = document.getElementById('viewModalReviews');
+            const cancelBtn      = document.querySelector('.btn-cancel');
+
             let currentPrice = 0;
 
             function updateTotal() {
@@ -430,6 +463,7 @@
                 modalTotal.textContent = (currentPrice * qty).toFixed(2);
             }
 
+            // View - Opens detailed modal with size/quantity options
             document.querySelectorAll('.btn-view').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const card = btn.closest('.wishlist-card');
@@ -450,11 +484,38 @@
                 });
             });
 
+            // Add to Cart - Opens simple modal with just product info
+            document.querySelectorAll('.btn-add').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const card = btn.closest('.wishlist-card');
+                    const img  = card.querySelector('img').src;
+                    const name = card.querySelector('h3').textContent;
+                    const pr   = card.querySelector('.current-price').textContent;
+                    const stars = card.querySelector('.stars')?.textContent || '★★★★★';
+                    const reviews = card.querySelector('.review-count')?.textContent || '';
+
+                    viewModalImage.src = img;
+                    viewModalTitle.textContent = name;
+                    viewModalPrice.textContent = pr;
+                    viewModalRating.textContent = stars;
+                    viewModalReviews.textContent = reviews;
+
+                    viewModal.style.display = 'flex';
+                });
+            });
+
+            // Close Add to Cart Modal
             closeBtn.onclick = () => modal.style.display = 'none';
             window.onclick = e => {
                 if (e.target === modal) modal.style.display = 'none';
+                if (e.target === viewModal) viewModal.style.display = 'none';
             };
 
+            // Close View Modal
+            closeViewBtn.onclick = () => viewModal.style.display = 'none';
+            cancelBtn.onclick = () => viewModal.style.display = 'none';
+
+            // Quantity controls for Add to Cart
             minusBtn.onclick = () => {
                 if (modalQuantity.value > 1) {
                     modalQuantity.value--;
@@ -469,10 +530,11 @@
 
             modalQuantity.oninput = updateTotal;
 
+            // Add to Cart Button
             addToCartBtn.onclick = () => {
                 const qty  = modalQuantity.value;
                 const size = document.getElementById('sizeSelect').value;
-                alert(`Added ${qty} × ${modalTitle.textContent} (Size: ${size})\nTotal: $${modalTotal.textContent}`);
+                alert(`✓ Added ${qty} × ${modalTitle.textContent} (Size: ${size})\nTotal: $${modalTotal.textContent}`);
                 modal.style.display = 'none';
             };
         });
